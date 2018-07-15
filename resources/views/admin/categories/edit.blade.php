@@ -1,7 +1,19 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Saken
- * Date: 14.07.2018
- * Time: 13:09
- */
+@extends('admin.layouts.app_admin')
+
+@section('content')
+    <div class="container">
+        @component('admin.components.breadcrumb')
+            @slot('title') Редактирование категории @endslot
+            @slot('parent') Главная @endslot
+            @slot('active') Категории @endslot
+        @endcomponent
+
+        <form action="{{ route('admin.category.update', $category) }}" method="post" class="form-horizontal">
+            <input type="hidden" name="_method" value="put">
+            {{ csrf_field() }}
+            @include('admin.categories.partials.form')
+        </form>
+
+    </div>
+
+@endsection

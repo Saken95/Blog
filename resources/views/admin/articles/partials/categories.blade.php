@@ -1,22 +1,20 @@
-@foreach( $categories as $category_list )
-    <option value="{{ $category_list->id or "" }}"
-        @isset($category->id)
+@foreach( $categories as $category )
+    <option value="{{ $category->id or "" }}"
+        @isset($article->id)
 
-            @if( $category->parent_id == $category_list->id )
-                selected=""
-            @endif
-
-            @if( $category->parent_id == $category_list->id )
-                hidden=""
-            @endif
+           @foreach( $article->categories as $category_article)
+               @if($category->id == $category_article->id)
+                   selected=""
+               @endif
+           @endforeach
         @endisset
     >
         {!! $delimiter or "" !!} {{ $category_list->title or "" }}
     </option>
 
     @if(count($category_list->children) > 0 )
-        @include('admin.categories.partials.categories',[
-            'categories'    => $category_list->children,
+        @include('admin.articles.partials.categories',[
+            'categories'    => $category->children,
             'delimiter'     => ' - ' . $delimiter
         ])
     @endif
