@@ -34,16 +34,16 @@ value="{{ $article->title or "" }}" required>
     {{ $article->description or "" }}
 </textarea>
 
-<hr>
+<hr />
 
 <label for="">Мета заголовок</label>
-<input type="text" class="form-control" name="meta_title" placeholder="Мета заголовок" value="{{ $article->meta_title }}">
+<input type="text" class="form-control" name="meta_title" placeholder="Мета заголовок" value="{{ $article->meta_title or ""}}">
 
 <label for="">Мета описание</label>
-<input type="text" class="form-control" name="meta_description" placeholder="Мета заголовок" value="{{ $article->meta_description }}">
+<input type="text" class="form-control" name="meta_description" placeholder="Мета описание" value="{{ $article->meta_description or "" }}">
 
 <label for="">Ключевые слова</label>
-<input type="text" class="form-control" name="meta_keyword" placeholder="Мета заголовок" value="{{ $article->meta_keyword }}">
+<input type="text" class="form-control" name="meta_keyword" placeholder="Ключевые слова" value="{{ $article->meta_keyword or "" }}">
 
 
 <div class="d-table mt-2">

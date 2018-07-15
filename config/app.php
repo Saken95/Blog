@@ -162,6 +162,9 @@ return [
 
         //Our packages
         Unisharp\Ckeditor\ServiceProvider::class,
+
+        // Our providers
+        App\Providers\BlogService::class,
     ],
 
     /*

@@ -3,15 +3,16 @@
 @section('content')
     <div class="container">
         @component('admin.components.breadcrumb')
-            @slot('title') Редактирование категории @endslot
+            @slot('title') Редактирование новости @endslot
             @slot('parent') Главная @endslot
-            @slot('active') Категории @endslot
+            @slot('active') Носвости @endslot
         @endcomponent
 
-        <form action="{{ route('admin.category.update', $category) }}" method="post" class="form-horizontal">
+        <form action="{{ route('admin.article.update', $article) }}" method="post" class="form-horizontal">
             <input type="hidden" name="_method" value="put">
             {{ csrf_field() }}
-            @include('admin.categories.partials.form')
+            @include('admin.articles.partials.form')
+            <input type="hidden" name="modified_by" value="{{ Auth::id() }}">
         </form>
 
     </div>

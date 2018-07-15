@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -35,15 +36,28 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                        role="button" aria-expanded="false">Блог</a>
-                        <ul class="dropdown-menu" role="menu">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.index') }}" class="nav-link">Панель состояния</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                        role="button" aria-expanded="false" id="navbarDropdown">Блог</a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropdown">
+
                             <li class="dropdown-item">
                                 <a href="{{ route('admin.category.index') }}">Категория</a>
                             </li>
                             <li class="dropdown-item">
                                 <a href="{{ route('admin.article.index') }}">Материалы</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                           role="button" aria-expanded="false" id="navbarDropdown">Управление пользователям</a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropdown">
+                            <li class="dropdown-item">
+                                <a href="{{ route('admin.user_managment.user.index') }}">Пользователи</a>
                             </li>
                         </ul>
                     </li>

@@ -8,7 +8,7 @@
             @slot('active') Новости @endslot
         @endcomponent
 
-        <form action="{{ route('admin.articles.store') }}" method="post" class="form-horizontal">
+        <form action="{{ route('admin.article.store') }}" method="post" class="form-horizontal">
             {{ csrf_field() }}
             @include('admin.articles.partials.form')
         </form>
